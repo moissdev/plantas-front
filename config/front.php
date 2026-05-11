@@ -1,0 +1,212 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Front's resources Folder
+    |--------------------------------------------------------------------------
+    |
+    | This is the folder location where the front resources are located
+    |
+    */
+
+    'resources_folder' => 'App\Front\Resources',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Model's Folder
+    |--------------------------------------------------------------------------
+    |
+    | This is the folder location where the models are located, used when
+    | creating resources with the commands.
+    |
+    */
+
+    'models_folder' => 'App\Models',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Base Url
+    |--------------------------------------------------------------------------
+    |
+    | This value is used when creating a new resource, it will add it automatically
+    | on the base_url attribute
+    |
+    */
+
+    'default_base_url' => '/admin',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Search Filter
+    |--------------------------------------------------------------------------
+    |
+    | The Apply() function on this filter will be used when making a search
+    | for a Front Resource. Used for autocomplete inputs and when adding
+    | searchable() to relationship functions.
+    |
+    */
+
+    'default_search_filter' => App\Front\Filters\SearchFilter::class,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Layout Name
+    |--------------------------------------------------------------------------
+    |
+    | The default layout name that uses Laravel Front
+    |
+    */
+
+    'default_layout' => 'layouts.app',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Date Format
+    |--------------------------------------------------------------------------
+    |
+    | The default date format used on the system
+    |
+    */
+
+    'date_format' => 'Y-m-d',
+    'datetime_format' => 'Y-m-d H:i:s',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Buttons
+    |--------------------------------------------------------------------------
+    |
+    | Buttons used on the system by default
+    |
+    */
+
+    'buttons' => [
+        'show' => [
+            'icon' => 'eye',
+            'name' => 'See',
+            'type' => 'btn-primary',
+            'class' => ''
+        ],
+        'edit' => [
+            'icon' => 'pencil',
+            'name' => 'Edit',
+            'type' => 'btn-primary',
+            'class' => ''
+        ],
+        'create' => [
+            'icon' => 'plus-small',
+            'name' => 'Create',
+            'type' => 'btn-primary',
+            'class' => ''
+        ],
+        'delete' => [
+            'icon' => 'trash',
+            'name' => 'Delete',
+            'type' => 'btn-outline-danger',
+            'class' => ''
+        ],
+        'up' => [
+            'icon' => 'arrow-up',
+            'name' => 'Up',
+            'type' => 'btn-primary',
+            'class' => ''
+        ],
+        'down' => [
+            'icon' => 'arrow-down',
+            'name' => 'Down',
+            'type' => 'btn-primary',
+            'class' => ''
+        ],
+        'trashedIndex' => [
+            'icon' => 'trash',
+            'name' => '',
+            'type' => 'btn-secondary',
+            'class' => ''
+        ],
+        'trashedReturn' => [
+            'icon' => 'arrow-left',
+            'name' => 'Return',
+            'type' => 'btn-secondary',
+            'class' => ''
+        ],
+        'restore' => [
+            'icon' => 'arrow-uturn-left',
+            'name' => 'Restore',
+            'type' => 'btn-secondary',
+            'class' => ''
+        ],
+        'forceDelete' => [
+            'icon' => 'trash',
+            'name' => 'force delete',
+            'type' => 'btn-secondary',
+            'class' => ''
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Input Attributes
+    |--------------------------------------------------------------------------
+    |
+    | Change here in case you want to change the default attributes for the inputs
+    |
+    */
+
+    'default_input_attributes' => [
+        'class' => 'mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm bg-white focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm'
+    ],
+
+    /* 
+    |--------------------------------------------------------------------------
+    | Datetime Wrap
+    |--------------------------------------------------------------------------
+    |
+    | If you want to wrap the datetime inputs on a carbon macro
+    | This is useful if your user have a custom timezone
+    |
+    */
+
+    'datetime_wrap' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Include jQuery
+    |--------------------------------------------------------------------------
+    | If you want to include jQuery on the layout
+    | Useful if you already loaded jquery on your app layout
+    |*/
+
+    'include_jquery' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Scripts Stack
+    |--------------------------------------------------------------------------
+    | The stack where you want to load the scripts
+    | on your layout, remember to add @stack('scripts-stack-name')
+    | on your layout
+    |*/
+    
+    'scripts_stack' => 'scripts-footer',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Thumbnails
+    |--------------------------------------------------------------------------
+    |
+    | The default thumbnails used on the system, you can add more
+    | 
+    */
+
+    'thumbnails' => [
+        ['prefix' => 's', 'width' => 90,   'height' => 90,   'fit' => true],  // Small Square
+        ['prefix' => 'b', 'width' => 160,  'height' => 160,  'fit' => true],  // Big Square
+        ['prefix' => 't', 'width' => 160,  'height' => 160,  'fit' => false], // Small Thumbnail
+        ['prefix' => 'm', 'width' => 320,  'height' => 320,  'fit' => false], // Medium Thumbnail
+        ['prefix' => 'l', 'width' => 640,  'height' => 640,  'fit' => false], // Large Thumbnail
+        ['prefix' => 'h', 'width' => 1024, 'height' => 1024, 'fit' => false], // Huge Thumbnail
+    ]
+
+];

@@ -18,6 +18,9 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
+            {{-- laravel-front inyecta el menú aquí --}}
+            @yield('after-nav')
+
             <!-- Page Heading -->
             @isset($header)
                 <header class="bg-white shadow">
@@ -29,8 +32,11 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                @include('flash::message')
+                @yield('content')
             </main>
         </div>
+
+        @stack('scripts-footer')
     </body>
 </html>
