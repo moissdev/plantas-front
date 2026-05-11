@@ -1,58 +1,155 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌿 Plantas Front
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Prototipo de sistema CRUD construido con **Laravel** y el paquete **laravel-front**, que permite registrar y gestionar plantas desde un panel con autenticación de usuarios.
 
-## About Laravel
+Este proyecto cuenta como una variante del prototipo [plantas-app](https://github.com/tu-usuario/plantas-app), construido con el mismo propósito pero utilizando laravel-front para generar el CRUD de forma más automatizada.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ¿Qué hace esta aplicación?
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Plantas Front permite llevar un registro básico de plantas desde el navegador, con acceso protegido por login. Con ella se puede:
 
-## Learning Laravel
+- **Registrar e iniciar sesión** con tu cuenta de usuario
+- **Registrar** una nueva planta con nombre común, especie, descripción y fecha de registro
+- **Ver** todas las plantas registradas en una tabla
+- **Eliminar** cualquier registro con confirmación previa
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+> La edición de registros no está incluida en este prototipo para esta version.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Tecnologías utilizadas
 
-## Agentic Development
+- [Laravel 11](https://laravel.com/) — Framework PHP
+- [Laravel Breeze](https://laravel.com/docs/starter-kits#breeze) — Autenticación ligera
+- [laravel-front](https://github.com/weblabormx/laravel-front) — Paquete para generar paneles CRUD
+- PHP >= 8.2
+- SQLite — Base de datos local sin servidor externo
+- Blade — Motor de plantillas de Laravel
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+---
+
+## Requisitos previos
+
+Antes de correr el proyecto, asegúrate de tener instalado en tu máquina:
+
+| Herramienta | Versión mínima | Verificar con |
+|---|---|---|
+| PHP | 8.2 | `php -v` |
+| Composer | 2.x | `composer -v` |
+| Node.js | 18.x | `node -v` |
+| Git | cualquier | `git -v` |
+
+> SQLite ya viene incluido con PHP, no necesitas instalar nada adicional para la base de datos.
+
+---
+
+## Instalación y configuración local
+
+Sigue estos pasos en orden para tener el proyecto corriendo en tu máquina:
+
+**1. Clonar el repositorio**
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/tu-usuario/plantas-front.git
+cd plantas-front
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+**2. Instalar dependencias PHP**
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**3. Instalar dependencias de frontend**
 
-## Code of Conduct
+```bash
+npm install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**4. Copiar el archivo de entorno**
 
-## Security Vulnerabilities
+```bash
+cp .env.example .env
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**5. Configurar la base de datos SQLite**
 
-## License
+Abre el archivo `.env` y asegúrate de que la configuración de base de datos sea:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```env
+DB_CONNECTION=sqlite
+```
+
+Elimina o comenta estas líneas si existen en tu `.env`:
+
+```env
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=laravel
+# DB_USERNAME=root
+# DB_PASSWORD=
+```
+
+Luego crea el archivo de base de datos:
+
+```bash
+touch database/database.sqlite
+```
+
+> Para Windows se usa: `echo "" > database/database.sqlite` o puedes crearlo de forma manual.
+
+**6. Generar la clave de aplicación**
+
+```bash
+php artisan key:generate
+```
+
+**7. Correr las migraciones**
+
+```bash
+php artisan migrate
+```
+
+Deberás ver una salida similar a:
+
+```
+INFO  Running migrations.
+0001_01_01_000000_create_users_table ............. DONE
+0001_01_01_000001_create_cache_table ............. DONE
+xxxx_xx_xx_create_plantas_table .................. DONE
+```
+
+**8. Compilar los assets de frontend**
+
+```bash
+npm run build
+```
+
+**9. Levantar el servidor**
+
+```bash
+php artisan serve
+```
+
+**10. Abrir en el navegador y registrarse**
+
+Visita: [http://127.0.0.1:8000/register](http://127.0.0.1:8000/register) ó http://plantas-front.test/register si posees Laravel Herd configurado en tu máquina.
+
+Crea tu cuenta de usuario, luego navega al CRUD de plantas en:
+
+```
+http://127.0.0.1:8000/plantas (ó http://plantas-front.test/register)
+```
+
+---
+
+## Diferencias con el prototipo plantas-app
+
+| Característica | plantas-app | plantas-front |
+|---|---|---|
+| Autenticación | ❌ No requiere | ✅ Requerida |
+| Generación del CRUD | Manual (controlador + vistas) | Automática vía laravel-front |
+| Complejidad de setup | Menor | Mayor (más dependencias) |
+
