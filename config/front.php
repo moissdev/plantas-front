@@ -158,7 +158,7 @@ return [
         'class' => 'mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm bg-white focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm'
     ],
 
-    /* 
+    /*
     |--------------------------------------------------------------------------
     | Datetime Wrap
     |--------------------------------------------------------------------------
@@ -188,7 +188,7 @@ return [
     | on your layout, remember to add @stack('scripts-stack-name')
     | on your layout
     |*/
-    
+
     'scripts_stack' => 'scripts-footer',
 
     /*
@@ -197,7 +197,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | The default thumbnails used on the system, you can add more
-    | 
+    |
     */
 
     'thumbnails' => [
